@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DevStudio - 全栈开发者 | AI 驱动开发",
-  description: "Web 应用开发、AI 自动化、Figma 插件定制。用 AI 提效，更快交付。",
+  title: "DevStudio - Full-Stack Developer | AI-Powered",
+  description: "Web apps, AI automation, Figma plugins. Ship faster with AI.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className="antialiased">{children}</body>
     </html>
   );
