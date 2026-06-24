@@ -8,22 +8,18 @@ export default function Home() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
           </span>
-          可接外包项目
+          鍙帴澶栧寘椤圭洰
         </div>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 leading-tight">
-          用 <span className="gradient-text">AI</span> 驱动开发
-          <br />更快交付，更高品质
-        </h1>
+          鐢?<span className="gradient-text">AI</span> 椹卞姩寮€鍙?          <br />鏇村揩浜や粯锛屾洿楂樺搧璐?        </h1>
         <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          全栈开发者，借助 AI 工具高效交付 Web 应用、自动化工具和 Figma 插件
-          —— 开发效率提升 3 倍。
-        </p>
+          鍏ㄦ爤寮€鍙戣€咃紝鍊熷姪 AI 宸ュ叿楂樻晥浜や粯 Web 搴旂敤銆佽嚜鍔ㄥ寲宸ュ叿鍜?Figma 鎻掍欢
+          鈥斺€?寮€鍙戞晥鐜囨彁鍗?3 鍊嶃€?        </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a href="#contact" className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-medium transition-colors">
-            联系我 →
-          </a>
+            鑱旂郴鎴?鈫?          </a>
           <a href="#work" className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-medium transition-colors">
-            查看作品
+            鏌ョ湅浣滃搧
           </a>
         </div>
       </section>
@@ -31,24 +27,24 @@ export default function Home() {
       {/* Services */}
       <section id="services" className="max-w-5xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-bold mb-10 text-center">
-          我能<span className="gradient-text">做什么</span>
+          鎴戣兘<span className="gradient-text">鍋氫粈涔?/span>
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              title: "Web 应用开发",
-              desc: "Next.js / React / Node.js 全栈开发，从落地页到 SaaS 后台管理系统。",
-              icon: "⚡",
+              title: "Web 搴旂敤寮€鍙?,
+              desc: "Next.js / React / Node.js 鍏ㄦ爤寮€鍙戯紝浠庤惤鍦伴〉鍒?SaaS 鍚庡彴绠＄悊绯荤粺銆?,
+              icon: "鈿?,
             },
             {
-              title: "AI 自动化",
-              desc: "Python 自动化脚本、AI 工作流搭建、智能客服、数据采集与分析。",
-              icon: "🤖",
+              title: "AI 鑷姩鍖?,
+              desc: "Python 鑷姩鍖栬剼鏈€丄I 宸ヤ綔娴佹惌寤恒€佹櫤鑳藉鏈嶃€佹暟鎹噰闆嗕笌鍒嗘瀽銆?,
+              icon: "馃",
             },
             {
-              title: "插件 & 扩展开发",
-              desc: "Figma 插件、VS Code 扩展、Chrome 插件，解决实际工作痛点。",
-              icon: "🔌",
+              title: "鎻掍欢 & 鎵╁睍寮€鍙?,
+              desc: "Figma 鎻掍欢銆乂S Code 鎵╁睍銆丆hrome 鎻掍欢锛岃В鍐冲疄闄呭伐浣滅棝鐐广€?,
+              icon: "馃攲",
             },
           ].map((s) => (
             <div key={s.title} className="card">
@@ -62,12 +58,12 @@ export default function Home() {
 
       {/* Tech Stack */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold mb-10 text-center">技术栈</h2>
+        <h2 className="text-2xl font-bold mb-10 text-center">鎶€鏈爤</h2>
         <div className="flex flex-wrap justify-center gap-3">
           {[
             "Next.js", "React", "TypeScript", "Node.js",
             "Python", "Tailwind CSS", "PostgreSQL", "Figma API",
-            "AI / LLM", "Git", "Docker", "VS Code 扩展",
+            "AI / LLM", "Git", "Docker", "VS Code 鎵╁睍",
           ].map((tech) => (
             <span
               key={tech}
@@ -82,23 +78,21 @@ export default function Home() {
       {/* Contact CTA */}
       <section id="contact" className="max-w-3xl mx-auto px-6 py-16 text-center">
         <div className="card p-10">
-          <h2 className="text-2xl font-bold mb-4">有项目要聊？</h2>
+          <h2 className="text-2xl font-bold mb-4">鏈夐」鐩鑱婏紵</h2>
           <p className="text-slate-400 mb-8 max-w-md mx-auto">
-            告诉我你的需求，24 小时内回复。
-          </p>
+            鍛婅瘔鎴戜綘鐨勯渶姹傦紝24 灏忔椂鍐呭洖澶嶃€?          </p>
           <a
-            href="mailto:709093772@qq.com"
+            href="mailto:xiyue030823@gmail.com"
             className="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-medium transition-colors text-lg"
           >
-            发送邮件 ✉️
+            鍙戦€侀偖浠?鉁夛笍
           </a>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="text-center py-8 text-slate-500 text-sm border-t border-white/5">
-        Next.js + AI 构建 · 分钟级部署上线
-      </footer>
+        Next.js + AI 鏋勫缓 路 鍒嗛挓绾ч儴缃蹭笂绾?      </footer>
     </main>
   );
 }
