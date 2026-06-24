@@ -8,22 +8,22 @@ export default function Home() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
           </span>
-          Available for freelance projects
+          可接外包项目
         </div>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 leading-tight">
-          Build <span className="gradient-text">Smarter</span>
-          <br />Ship Faster
+          用 <span className="gradient-text">AI</span> 驱动开发
+          <br />更快交付，更高品质
         </h1>
         <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Full-stack developer leveraging AI to deliver production-ready web apps,
-          automation tools, and Figma plugins — at 3x the speed.
+          全栈开发者，借助 AI 工具高效交付 Web 应用、自动化工具和 Figma 插件
+          —— 开发效率提升 3 倍。
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a href="#contact" className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-medium transition-colors">
-            Start a Project →
+            联系我 →
           </a>
           <a href="#work" className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-medium transition-colors">
-            View My Work
+            查看作品
           </a>
         </div>
       </section>
@@ -31,23 +31,23 @@ export default function Home() {
       {/* Services */}
       <section id="services" className="max-w-5xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-bold mb-10 text-center">
-          What I <span className="gradient-text">Offer</span>
+          我能<span className="gradient-text">做什么</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              title: "Web App Development",
-              desc: "Next.js, React, Node.js full-stack apps. From landing pages to SaaS dashboards.",
+              title: "Web 应用开发",
+              desc: "Next.js / React / Node.js 全栈开发，从落地页到 SaaS 后台管理系统。",
               icon: "⚡",
             },
             {
-              title: "AI Automation",
-              desc: "Python automation scripts, AI-powered workflows, chatbots, and data pipelines.",
+              title: "AI 自动化",
+              desc: "Python 自动化脚本、AI 工作流搭建、智能客服、数据采集与分析。",
               icon: "🤖",
             },
             {
-              title: "Figma Plugins & Extensions",
-              desc: "Custom Figma/VS Code/Chrome plugins that solve real design & dev problems.",
+              title: "插件 & 扩展开发",
+              desc: "Figma 插件、VS Code 扩展、Chrome 插件，解决实际工作痛点。",
               icon: "🔌",
             },
           ].map((s) => (
@@ -62,12 +62,12 @@ export default function Home() {
 
       {/* Tech Stack */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold mb-10 text-center">Tech Stack</h2>
+        <h2 className="text-2xl font-bold mb-10 text-center">技术栈</h2>
         <div className="flex flex-wrap justify-center gap-3">
           {[
             "Next.js", "React", "TypeScript", "Node.js",
             "Python", "Tailwind CSS", "PostgreSQL", "Figma API",
-            "AI / LLM", "Git", "Docker", "VS Code Extensions",
+            "AI / LLM", "Git", "Docker", "VS Code 扩展",
           ].map((tech) => (
             <span
               key={tech}
@@ -82,22 +82,22 @@ export default function Home() {
       {/* Contact CTA */}
       <section id="contact" className="max-w-3xl mx-auto px-6 py-16 text-center">
         <div className="card p-10">
-          <h2 className="text-2xl font-bold mb-4">Let&apos;s Build Together</h2>
+          <h2 className="text-2xl font-bold mb-4">有项目要聊？</h2>
           <p className="text-slate-400 mb-8 max-w-md mx-auto">
-            Got a project in mind? Reach out and I&apos;ll get back to you within 24 hours.
+            告诉我你的需求，24 小时内回复。
           </p>
           <a
-            href="mailto:your@email.com"
+            href="mailto:709093772@qq.com"
             className="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-medium transition-colors text-lg"
           >
-            Get in Touch ✉️
+            发送邮件 ✉️
           </a>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="text-center py-8 text-slate-500 text-sm border-t border-white/5">
-        Built with Next.js + AI · Ready to deploy in minutes
+        Next.js + AI 构建 · 分钟级部署上线
       </footer>
     </main>
   );
