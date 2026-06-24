@@ -25,7 +25,7 @@ export default function Home() {
             View My Work →
           </a>
           <a href="#contact" className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-medium transition-colors">
-            Contact
+            Hire Me
           </a>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function Home() {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: "Web Apps", desc: "Next.js / React / Node.js full-stack. From landing pages to SaaS.", icon: "⚡" },
+            { title: "Web Apps", desc: "Next.js / React / Node.js. From landing pages to SaaS dashboards.", icon: "⚡" },
             { title: "AI Automation", desc: "Python workflows, chatbots, data scraping and analysis.", icon: "🤖" },
             { title: "Plugins", desc: "Figma plugins, VS Code & Chrome extensions.", icon: "🔌" },
           ].map((s) => (
@@ -85,17 +85,102 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact - Simple */}
-      <section id="contact" className="max-w-5xl mx-auto px-6 py-16 text-center">
-        <h2 className="text-2xl font-bold mb-10">
-          Contact <span className="gradient-text">Me</span>
+      {/* Contact Form */}
+      <section id="contact" className="max-w-lg mx-auto px-6 py-16 scroll-mt-24">
+        <h2 className="text-2xl font-bold mb-2 text-center">
+          Get in <span className="gradient-text">Touch</span>
         </h2>
-        <a
-          href="mailto:xiyue030823@gmail.com"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-medium transition-colors text-lg"
+        <p className="text-slate-400 text-sm text-center mb-10">
+          Tell me about your project and I will get back to you.
+        </p>
+
+        <form
+          action="https://formsubmit.co/xiyue030823@gmail.com"
+          method="POST"
+          className="space-y-5"
         >
-          xiyue030823@gmail.com ✉️
-        </a>
+          {/* Honeypot anti-spam */}
+          <input type="text" name="_honey" style={{ display: "none" }} />
+          {/* Disable captcha */}
+          <input type="hidden" name="_captcha" value="false" />
+          {/* Redirect after submit */}
+          <input type="hidden" name="_next" value="https://devstudio-portfolio.vercel.app/?sent=1" />
+          {/* Email subject */}
+          <input type="hidden" name="_subject" value="New Project Inquiry - DevStudio" />
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Name *</label>
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Your name"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Gender</label>
+            <div className="flex gap-4">
+              {["Male", "Female", "Prefer not to say"].map((g) => (
+                <label key={g} className="flex items-center gap-2 text-sm text-slate-400 cursor-pointer">
+                  <input type="radio" name="gender" value={g} className="accent-indigo-500" />
+                  {g}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Budget (USD) *</label>
+            <select
+              name="budget"
+              required
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm appearance-none"
+              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 16px center" }}
+            >
+              <option value="" className="bg-slate-800">Select budget range</option>
+              <option value="Under $500" className="bg-slate-800">Under $500</option>
+              <option value="$500 - $1,000" className="bg-slate-800">$500 - $1,000</option>
+              <option value="$1,000 - $3,000" className="bg-slate-800">$1,000 - $3,000</option>
+              <option value="$3,000 - $5,000" className="bg-slate-800">$3,000 - $5,000</option>
+              <option value="$5,000+" className="bg-slate-800">$5,000+</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Your Email *</label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@email.com"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Project Requirements *</label>
+            <textarea
+              name="requirements"
+              required
+              rows={5}
+              placeholder="Describe your project, timeline, and any specific needs..."
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm resize-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-semibold text-white transition-colors text-base"
+          >
+            Send Inquiry →
+          </button>
+
+          <p className="text-xs text-slate-500 text-center">
+            Your info goes directly to my inbox. I will reply within 24 hours.
+          </p>
+        </form>
       </section>
 
       {/* Footer */}
