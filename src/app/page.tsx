@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -25,6 +27,35 @@ export default function Home() {
           <a href="#work" className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-medium transition-colors">
             View Work
           </a>
+        </div>
+      </section>
+
+      {/* Work / Portfolio */}
+      <section id="work" className="max-w-5xl mx-auto px-6 py-16">
+        <h2 className="text-2xl font-bold mb-10 text-center">
+          My <span className="gradient-text">Work</span>
+        </h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Link
+            href="/fitness"
+            className="card group cursor-pointer"
+          >
+            <div className="text-3xl mb-4">💪</div>
+            <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">FitZone - Fitness Platform</h3>
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              A modern fitness landing page with training programs, pricing, and smooth animations. Built with Next.js + Tailwind.
+            </p>
+            <span className="text-indigo-400 text-sm font-medium">View Project →</span>
+          </Link>
+
+          <div className="card">
+            <div className="text-3xl mb-4">🐾</div>
+            <h3 className="text-lg font-semibold mb-2">Meow Planet - Cat Community</h3>
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              A warm, healing cat-themed community site with breed gallery, care guides, and contact form. Pure HTML + Tailwind CDN.
+            </p>
+            <span className="text-indigo-400 text-sm font-medium">Coming Soon</span>
+          </div>
         </div>
       </section>
 
