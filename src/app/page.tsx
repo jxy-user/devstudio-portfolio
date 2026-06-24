@@ -1,8 +1,93 @@
 ﻿import Link from "next/link";
+import FormToast from "./FormToast";
+
+function ContactForm() {
+  return (
+    <section id="contact" className="max-w-lg mx-auto px-6 py-16 scroll-mt-24">
+      <h2 className="text-2xl font-bold mb-2 text-center">
+        Get in <span className="gradient-text">Touch</span>
+      </h2>
+      <p className="text-slate-400 text-sm text-center mb-10">
+        Tell me about your project and I will get back to you.
+      </p>
+
+      <form action="/api/contact" method="POST" className="space-y-5">
+        <div>
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">Name *</label>
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Your name"
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">Gender</label>
+          <div className="flex gap-4">
+            {["Male", "Female", "Prefer not to say"].map((g) => (
+              <label key={g} className="flex items-center gap-2 text-sm text-slate-400 cursor-pointer">
+                <input type="radio" name="gender" value={g} className="accent-indigo-500" />
+                {g}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">Budget (CNY) *</label>
+          <input
+            type="text"
+            name="budget"
+            required
+            placeholder="e.g. 5000"
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">Your Email *</label>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@qq.com / you@163.com"
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">Project Requirements *</label>
+          <textarea
+            name="requirements"
+            required
+            rows={5}
+            placeholder="Describe your project, timeline, and any specific needs..."
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm resize-none"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-semibold text-white transition-colors text-base"
+        >
+          Send Inquiry →
+        </button>
+
+        <p className="text-xs text-slate-500 text-center">
+          Your info goes directly to my inbox. I will reply within 24 hours.
+        </p>
+      </form>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <FormToast />
+
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm mb-8">
@@ -86,96 +171,7 @@ export default function Home() {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="max-w-lg mx-auto px-6 py-16 scroll-mt-24">
-        <h2 className="text-2xl font-bold mb-2 text-center">
-          Get in <span className="gradient-text">Touch</span>
-        </h2>
-        <p className="text-slate-400 text-sm text-center mb-10">
-          Tell me about your project and I will get back to you.
-        </p>
-
-        <form
-          action="https://formsubmit.co/xiyue030823@gmail.com"
-          method="POST"
-          className="space-y-5"
-        >
-          {/* Honeypot anti-spam */}
-          <input type="text" name="_honey" style={{ display: "none" }} />
-          {/* Disable captcha */}
-          <input type="hidden" name="_captcha" value="false" />
-          {/* Redirect after submit */}
-          <input type="hidden" name="_next" value="https://devstudio-portfolio.vercel.app/?sent=1" />
-          {/* Email subject */}
-          <input type="hidden" name="_subject" value="New Project Inquiry - DevStudio" />
-
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Name *</label>
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Your name"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Gender</label>
-            <div className="flex gap-4">
-              {["Male", "Female", "Prefer not to say"].map((g) => (
-                <label key={g} className="flex items-center gap-2 text-sm text-slate-400 cursor-pointer">
-                  <input type="radio" name="gender" value={g} className="accent-indigo-500" />
-                  {g}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Budget (CNY) *</label>
-            <input
-              type="text"
-              name="budget"
-              required
-              placeholder="e.g. 5000"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Your Email *</label>
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="you@qq.com / you@163.com"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Project Requirements *</label>
-            <textarea
-              name="requirements"
-              required
-              rows={5}
-              placeholder="Describe your project, timeline, and any specific needs..."
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm resize-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-semibold text-white transition-colors text-base"
-          >
-            Send Inquiry →
-          </button>
-
-          <p className="text-xs text-slate-500 text-center">
-            Your info goes directly to my inbox. I will reply within 24 hours.
-          </p>
-        </form>
-      </section>
+      <ContactForm />
 
       {/* Footer */}
       <footer className="text-center py-8 text-slate-500 text-sm border-t border-white/5">
