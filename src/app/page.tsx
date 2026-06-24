@@ -31,7 +31,7 @@ export default function Home() {
       </section>
 
       {/* Work / Portfolio */}
-      <section id="work" className="max-w-5xl mx-auto px-6 py-16">
+      <section id="work" className="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
         <h2 className="text-2xl font-bold mb-10 text-center">
           My <span className="gradient-text">Work</span>
         </h2>
@@ -43,19 +43,22 @@ export default function Home() {
             <div className="text-3xl mb-4">💪</div>
             <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">FitZone - Fitness Platform</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              A modern fitness landing page with training programs, pricing, and smooth animations. Built with Next.js + Tailwind.
+              A modern fitness landing page with training programs, pricing tiers, and smooth scroll animations. Built with Next.js + Tailwind.
             </p>
-            <span className="text-indigo-400 text-sm font-medium">View Project →</span>
+            <span className="text-indigo-400 text-sm font-medium group-hover:underline">View Project →</span>
           </Link>
 
-          <div className="card">
+          <Link
+            href="/meow-planet"
+            className="card group cursor-pointer"
+          >
             <div className="text-3xl mb-4">🐾</div>
-            <h3 className="text-lg font-semibold mb-2">Meow Planet - Cat Community</h3>
+            <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">Meow Planet - Cat Community</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              A warm, healing cat-themed community site with breed gallery, care guides, and contact form. Pure HTML + Tailwind CDN.
+              A warm, healing cat-themed site with breed gallery, care guides, contact form, and carousel hero. Next.js + Tailwind.
             </p>
-            <span className="text-indigo-400 text-sm font-medium">Coming Soon</span>
-          </div>
+            <span className="text-indigo-400 text-sm font-medium group-hover:underline">View Project →</span>
+          </Link>
         </div>
       </section>
 
