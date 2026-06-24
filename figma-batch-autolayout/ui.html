@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-size: 12px;
+      color: var(--figma-color-text);
+      background: var(--figma-color-bg);
+      padding: 16px;
+    }
+    h2 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .subtitle { color: var(--figma-color-text-secondary); margin-bottom: 16px; }
+
+    .info-bar {
+      display: flex; gap: 8px; margin-bottom: 16px;
+      padding: 10px; border-radius: 8px;
+      background: var(--figma-color-bg-secondary);
+    }
+    .info-item { flex: 1; text-align: center; }
+    .info-value { font-size: 18px; font-weight: 700; color: #6366f1; }
+    .info-label { font-size: 10px; color: var(--figma-color-text-secondary); }
+
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-weight: 500; margin-bottom: 4px; color: var(--figma-color-text-secondary); }
+    select, input {
+      width: 100%; padding: 8px 10px;
+      border: 1px solid var(--figma-color-border);
+      border-radius: 6px; font-size: 12px;
+      background: var(--figma-color-bg); color: var(--figma-color-text);
+    }
+    select:focus, input:focus {
+      outline: none; border-color: #6366f1; box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+    }
+
+    .row { display: flex; gap: 8px; }
+    .row .form-group { flex: 1; }
+
+    .padding-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 10px; border-radius: 8px;
+      background: var(--figma-color-bg-secondary); margin-bottom: 12px;
+    }
+    .padding-grid .form-group { margin-bottom: 0; }
+    .padding-grid input { text-align: center; }
+
+    button {
+      width: 100%; padding: 10px;
+      border: none; border-radius: 8px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.9; }
+    .btn-primary { background: #6366f1; color: white; margin-bottom: 8px; }
+    .btn-secondary { background: var(--figma-color-bg-secondary); color: var(--figma-color-text); }
+
+    .warning {
+      padding: 10px; border-radius: 6px;
+      background: rgba(239, 68, 68, 0.1); color: #ef4444;
+      font-size: 11px; margin-bottom: 12px; display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Batch Auto Layout</h2>
+  <p class="subtitle">Apply auto-layout settings to all selected frames at once.</p>
+
+  <div class="info-bar">
+    <div class="info-item">
+      <div class="info-value" id="frameCount">0</div>
+      <div class="info-label">Frames Selected</div>
+    </div>
+    <div class="info-item">
+      <div class="info-value" id="autoCount">0</div>
+      <div class="info-label">Have Auto Layout</div>
+    </div>
+  </div>
+
+  <div class="warning" id="noSelection">Select at least one frame to continue.</div>
+
+  <div class="form-group">
+    <label>Direction</label>
+    <select id="direction">
+      <option value="VERTICAL">Vertical ↓</option>
+      <option value="HORIZONTAL">Horizontal →</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Gap Between Items</label>
+    <input type="number" id="gap" value="8" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label>Padding</label>
+    <div class="padding-grid">
+      <div class="form-group">
+        <label>Top</label>
+        <input type="number" id="paddingTop" value="16" min="0" />
+      </div>
+      <div class="form-group">
+        <label>Right</label>
+        <input type="number" id="paddingRight" value="16" min="0" />
+      </div>
+      <div class="form-group">
+        <label>Bottom</label>
+        <input type="number" id="paddingBottom" value="16" min="0" />
+      </div>
+      <div class="form-group">
+        <label>Left</label>
+        <input type="number" id="paddingLeft" value="16" min="0" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label>Horizontal Align</label>
+      <select id="hAlign">
+        <option value="MIN">Left / Top</option>
+        <option value="CENTER">Center</option>
+        <option value="MAX">Right / Bottom</option>
+        <option value="SPACE_BETWEEN">Space Between</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Vertical Align</label>
+      <select id="vAlign">
+        <option value="MIN">Top / Left</option>
+        <option value="CENTER">Center</option>
+        <option value="MAX">Bottom / Right</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn-primary" id="applyBtn">Apply Auto Layout</button>
+  <button class="btn-secondary" id="cancelBtn">Cancel</button>
+
+  <script>
+    const v = (id) => document.getElementById(id);
+
+    function updateUI() {
+      parent.postMessage({ pluginMessage: { type: "get-selection-info" } }, "*");
+    }
+
+    window.onmessage = (e) => {
+      const msg = e.data.pluginMessage;
+      if (msg?.type === "selection-info") {
+        v("frameCount").textContent = msg.frames;
+        v("autoCount").textContent = msg.autoLayoutCount;
+        v("noSelection").style.display = msg.frames === 0 ? "block" : "none";
+        v("applyBtn").disabled = msg.frames === 0;
+      }
+    };
+
+    v("applyBtn").onclick = () => {
+      parent.postMessage({
+        pluginMessage: {
+          type: "apply-autolayout",
+          settings: {
+            direction: v("direction").value,
+            gap: parseInt(v("gap").value) || 0,
+            paddingTop: parseInt(v("paddingTop").value) || 0,
+            paddingRight: parseInt(v("paddingRight").value) || 0,
+            paddingBottom: parseInt(v("paddingBottom").value) || 0,
+            paddingLeft: parseInt(v("paddingLeft").value) || 0,
+            horizontalAlign: v("hAlign").value,
+            verticalAlign: v("vAlign").value,
+          },
+        },
+      }, "*");
+    };
+
+    v("cancelBtn").onclick = () => {
+      parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
+    };
+
+    updateUI();
+    setInterval(updateUI, 1000);
+  </script>
+</body>
+</html>
