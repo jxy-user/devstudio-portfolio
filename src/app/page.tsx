@@ -148,7 +148,7 @@ export default function Home() {
               type="email"
               name="email"
               required
-              placeholder="you@email.com"
+              placeholder="you@qq.com / you@163.com"
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
             />
           </div>
