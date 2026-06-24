@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Home() {
   return (
@@ -132,20 +132,14 @@ export default function Home() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Budget (USD) *</label>
-            <select
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Budget (CNY) *</label>
+            <input
+              type="text"
               name="budget"
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm appearance-none"
-              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 16px center" }}
-            >
-              <option value="" className="bg-slate-800">Select budget range</option>
-              <option value="Under $500" className="bg-slate-800">Under $500</option>
-              <option value="$500 - $1,000" className="bg-slate-800">$500 - $1,000</option>
-              <option value="$1,000 - $3,000" className="bg-slate-800">$1,000 - $3,000</option>
-              <option value="$3,000 - $5,000" className="bg-slate-800">$3,000 - $5,000</option>
-              <option value="$5,000+" className="bg-slate-800">$5,000+</option>
-            </select>
+              placeholder="e.g. 5000"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-sm"
+            />
           </div>
 
           <div>
